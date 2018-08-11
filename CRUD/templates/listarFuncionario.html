@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid">
+  <h1>Funcionários</h1>
+  <br>
+  <div class="row">
+    <div class="col-sm-4" >
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="listarFuncionario">Funcionários</a></li>
+            <li><a href="Ativos">Funcionário ativos</a></li>
+            <li><a href="Inativos">Funcionários inativos</a></li>
+          <!--  <li><a href="Admitidos">Período de admissão</a></li>
+            <li><a href="Demitidos">Período de demissão</a></li> -->
+        </ul>
+    </div>
+    <div class="col-sm-6" >
+        <p>Esta página possibilita realizar a pesquisa dos funcionários ativos na empresa. Na barra abaixo escreva o valor pelo qual deseja pesquisar, ou realize uma pesquisa específica ao lado.</p>
+        <p>Para atualizar os dados do colaborador, clique no ID desejado.</p>
+        </div>
+      <br>
+  </div>
+</div>
+    <div class="container">
+        <div class="clearfix visible-lg"></div>
+        <br>
+        <script>
+            $('#pesquisaFuncionario').val()
+        </script>
+        <input class="form-control input-lg" id="myInput" type="text" placeholder="Pesquisar..">
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>CPF</th>
+                    <th>RG</th>
+                    <th>Data de nascimento</th>
+                    <th>Endereço</th>
+                    <th>Sexo</th>
+                    <th>Data de admissão</th>
+                    <th>Data de demissão</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                {% for Funcionario in Funcionario %}
+                    <tr>
+                        <td><a href='/atualizaFuncionario?ID={{ Funcionario.ID }}'>{{ Funcionario.ID }}</a></td>
+                        <td>{{ Funcionario.Nome }}</td>
+                        <td>{{ Funcionario.Sobrenome }}</td>
+                        <td>{{ Funcionario.CPF }}</td>
+                        <td>{{ Funcionario.RG }}</td>
+                        <td>{{ Funcionario.DataNascimento }}</td>
+                        <td>{{ Funcionario.Endereco }}</td>
+                        <td>{{ Funcionario.Sexo }}</td>
+                        <td>{{ Funcionario.data_admissao }}</td>
+                        <td>{{ Funcionario.data_demissao }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</div>
+{% endblock %}

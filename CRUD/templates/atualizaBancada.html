@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1>Atualiza Bancada</h1>
+</div>
+  <div class="col-sm-10">
+    {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+    <div class="row">
+        <div class="col-md-10">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Identificação</th><th>Nome</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ session['func']['ID'] }}</td>
+                    <td>{{ session['func']['Tipo'] }}</td>
+                    <td>{{ session['func']['Sala_ID'] }}</td>
+                    <td>{{ session['func']['Ativo'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+
+    <form action="{{ url_for('atualizaBancada') }}" method=post>
+        <div class="form-group">
+            <label for="ID">Identificação</label>
+            <input type="text" name="ID" class="form-control"  value={{ session['func']['ID'] }}>
+        </div>
+
+        <div class="form-group">
+            <label for="Tipo">Tipo</label>
+            <input type="text" name="Tipo" class="form-control"  value={{ session['func']['Tipo'] }} placeholder="Tipo">
+        </div>
+
+        <div class="form-group">
+            <label for="Sala_ID">Identificação da Sala</label>
+            <input type="text" name="Sala_ID" class="form-control"  value={{ session['func']['Sala_ID'] }} placeholder="Sala_ID">
+        </div>
+
+        <div class="form-group">
+            <label for="Ativo">Ativo</label>
+            <input type="text" name="Ativo" class="form-control"  value={{ session['func']['Ativo'] }} placeholder="Ativo">
+        </div>
+
+        <button type=submit class="btn btn-primary btn-block">Atualizar</button>
+    </form>
+
+  </div>
+{% endblock %}ock %}

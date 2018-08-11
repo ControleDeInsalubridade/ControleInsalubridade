@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+  <div class="col-sm-10">
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.CPF.label }}<br>
+            {{ form.CPF(size=32) }}
+        </p>
+        <p>
+            {{ form.Senha.label }}<br>
+            {{ form.Senha(size=32) }}
+        </p>
+        <p>{{ form.Lembrar() }} {{ form.Lembrar.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

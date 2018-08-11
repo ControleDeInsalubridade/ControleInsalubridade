@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-header">
+    <h1>Adicionar Camera</h1>
+</div>
+
+<div class="col-sm-10">
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action="{{ url_for('insereCamera')}}" method="POST">
+    <div class="form-group">
+          <label for="ID">Identificação</label>
+          <input type="text" class="form-control" id="ID"  name="ID" placeholder="Número de identificação">
+    </div>
+    <div class="form-group">
+          <label for="IP">IP</label>
+          <input type="text" class="form-control" id="IP" name="IP" placeholder="IP">
+    </div>
+    <div class="form-group">
+          <label for="Marca">Marca</label>
+          <input type="text" class="form-control" id="Marca" name="Marca" placeholder="Marca">
+    </div>
+    <div class="form-group">
+          <label for="Datasheet">Datasheet</label>
+          <input type="text" class="form-control" id="Datasheet"  name="Datasheet" placeholder="Endereço eletrônico do datasheet">
+    </div>
+    <div class="form-group">
+          <label for="Sala_ID">Sala_ID</label>
+          <input type="text" class="form-control" id="Sala_ID" name="Sala_ID" placeholder="Número de identificação da sala">
+    </div>
+    <button type=submit class="btn btn-primary btn-block">Adicionar</button>
+  </form>
+</div>
+{% endblock %}

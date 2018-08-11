@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid">
+  <h1>Utilização das Salas</h1>
+</div>
+    <div class="container">
+        <div class="clearfix visible-lg"></div>
+        <br>
+        <script>
+            $('#pesquisaSala').val()
+        </script>
+        <input class="form-control input-lg" id="myInput" type="text" placeholder="Pesquisar..">
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Horário de entrada</th>
+                    <th>Horário de saida</th>
+                    <th>Identificação do funcionário</th>
+                    <th>Identificação da Sala </th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                {% for Bancada in Bancada %}
+                    <tr>
+                        <td>{{ Bancada.Hora_inicio }}</td>
+                        <td>{{ Bancada.Hora_fim}}</td>
+                        <td><a href='/listarFuncionario={{ Bancada.Funcionario_ID}}'>{{ Bancada.Funcionario_ID}}</a></td>
+                        <td><a href='/listarSala={{ Bancada.Sala_ID}}'>{{ Bancada.Sala_ID}}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</div>
+{% endblock %}

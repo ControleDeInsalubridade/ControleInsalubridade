@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Funcionário</h3>
+      <p>Verifique informações dos colaboradores ativos e inativos da empresa.</p>
+      <p>Controle de admissão e demissão.</p>
+      <p>Controle de presença em salas e bancadas.</p>
+      <p>Controle de irregularidades.</p>
+      <p><strong>Funções habilitadas</strong><br> Listar, Adicionar, Demitir, Atualizar e Verificar irregularidades.</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Sala</h3>
+      <p>Verifique informações das Salas que possuem controle de entrada na empresa.</p>
+      <p>Controle de entrada e saída de colaboradores.</p>
+      <p>Controle de irregularidades.</p>
+      <p><strong>Funções habilitadas</strong><br> Listar, Adicionar, Remover, Atualizar e Verificar irregularidades.</p>
+    </div>
+    <div class="col-sm-4">
+     <h3>Bancada</h3>
+      <p>Verifique informações das Bancadas que possuem controle de uso na empresa.</p>
+      <p>Controle de inicio e fim de uso de colaboradores.</p>
+      <p>Controle de irregularidades.</p>
+      <p><strong>Funções habilitadas</strong><br> Listar, Adicionar, Remover, Atualizar e Verificar irregularidades.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+{% endblock %}
+
+

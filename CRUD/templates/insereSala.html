@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-header">
+    <h1>Adicionar nova Sala</h1>
+</div>
+
+<div class="col-sm-10">
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+<form action="{{ url_for('inserirSala')}}" method="POST">
+    <div class="form-group">
+          <label for="ID">Identificação</label>
+          <input type="text" name="ID" class="form-control" id="ID" placeholder="Número de identificação">
+    </div>
+    <div class="form-group">
+          <label for="Nome">Nome</label>
+          <input type="text" name="Nome" class="form-control" id="Nome" placeholder="Nome da sala">
+    </div>
+    <button type=submit class="btn btn-primary btn-block">Adicionar</button>
+</form>
+
+</div>
+{% endblock %}

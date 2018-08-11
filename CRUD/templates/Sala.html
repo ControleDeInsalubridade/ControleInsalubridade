@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <a href="listarSala">
+                <button type="button" class="btn btn-primary btn-block btn-lg">Listar</button>
+            </a>
+            <a href="insereSala">
+                <button type="button" class="btn btn-primary btn-block btn-lg">Inserir</button>
+            </a>
+            <a href="removeSala">
+                <button type="button" class="btn btn-primary btn-block btn-lg">Remover</button>
+            </a>
+            <a href="atualizaSala">
+                <button type="button" class="btn btn-primary btn-block btn-lg">Atualizar</button>
+            </a>
+            <a href="historicoSala">
+                <button type="button" class="btn btn-primary btn-block btn-lg">Historico</button>
+            </a>
+        </div>
+    </body>
+</html>
+
+{% endblock %}
+
+

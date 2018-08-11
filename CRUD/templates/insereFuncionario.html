@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="page-header">
+    <h1>Adicionar Funcionário</h1>
+</div>
+
+<div class="col-sm-10">
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+    <form action="{{ url_for('insereFuncionario')}}" method="POST">
+    <div class="form-group">
+          <label for="Nome">Nome</label>
+          <input type="text" class="form-control" name="Nome" id="Nome" placeholder="Primeiro nome">
+    </div>
+     <div class="form-group">
+          <label for="Sobrenome">Sobrenome</label>
+          <input type="text" class="form-control" name="Sobrenome" id="Sobrenome" placeholder="Sobrenome">
+    </div>
+     <div class="form-group">
+          <label for="CPF">CPF</label>
+          <input type="text" class="form-control" name="CPF" id="CPF" placeholder="xxx.xxx.xxx-xx">
+    </div>
+     <div class="form-group">
+          <label for="RG">RG</label>
+          <input type="text" class="form-control" name="RG" id="RG" placeholder="x.xxx-xxx">
+    </div>
+    <div class="form-group">
+          <label for="DataNascimento">Data de nascimento</label>
+          <input type="date" class="form-control" name="DataNascimento" id="DataNascimento" placeholder="xx/xx/xxxx">
+    </div>
+    <div class="form-group">
+          <label for="Endereco">Endereço</label>
+          <input type="text" class="form-control" name="Endereco" id="Endereco" placeholder="Endereço pessoal">
+    </div>
+    <div class="form-group">
+          <label for="data_admissao">Data de admissão</label>
+          <input type="date" class="form-control" name="data_admissao" id="data_admissao" placeholder="xx/xx/xxxx">
+          <input name="Sexo" id="Sexo" value="" type="hidden"></input>
+    </div>
+    <!-- <div class="form-group">
+          <label for="Sexo">Sexo</label>
+          <input type="text" class="form-control" name="Sexo" id="Sexo" placeholder="Feminino//Masculino">
+    </div> -->
+
+    <div class="form-group">
+  <label for="sel1">Gênero:</label>
+  <select class="form-control" id="sexo">
+    <option>Feminino</option>
+    <option>Masculino</option>
+    <option>Não declarado</option>
+    </select>
+    <br>
+    <button type=submit class="btn btn-primary btn-block">Adicionar</button>
+  </form>
+     <script>
+    $(document).ready(function(){
+        $('#sexo').on('change',function(){
+
+            var valor = $("#sexo option:selected").text();
+            $("#Sexo").val(valor);
+
+    });
+    });
+    </script>
+</div>
+{% endblock %}

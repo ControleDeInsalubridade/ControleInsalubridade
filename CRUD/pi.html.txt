@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inserindo e manipulando imagens em uma página HTML</title>
+</head>
+<body>
+	<img src="image/logo.png" alt="Minha imagem!" title="Imagem que aprendi a inserir em um documento HTML" vspace="10px" hspace="15px" border="10px" align="right"/>
+	</body>
+</html>

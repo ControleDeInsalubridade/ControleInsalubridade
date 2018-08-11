@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="page-header">
+    <h1>Listar Irregularidades</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Inicio</th>
+                    <th>Fim</th>
+                    <th>ID Funcionario</th>
+                    <th>ID Bancada</th>
+                    <th>ID Sala</th>
+                    <th>Horas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in irregularidades %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.inicio }}</td>
+                        <td>{{ i.fim }}</td>
+                        <td>{{ i.id_func }}</td>
+                        <td>{{ i.id_bancada}}</td>
+                        <td>{{ i.id_sala }}</td>
+                        <td>{{ i.horas }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

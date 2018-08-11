@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid">
+  <h1>Salas</h1>
+  <br>
+  <div class="row">
+    <div class="col-sm-4" >
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="listarSala">Salas</a></li>
+            <li><a href="SalaAtiva">Salas ativas</a></li>
+            <li><a href="SalaInativa">Salas inativas</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-6" >
+        <p>Esta página possibilita realizar a pesquisa das Salas na empresa. Na barra abaixo escreva o valor pelo qual deseja pesquisar, ou realize uma pesquisa específica ao lado.</p>
+        </div>
+      <br>
+  </div>
+</div>
+    <div class="container">
+        <div class="clearfix visible-lg"></div>
+        <br>
+        <script>
+            $('#pesquisaSala').val()
+        </script>
+        <input class="form-control input-lg" id="myInput" type="text" placeholder="Pesquisar..">
+               <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Em uso</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                {% for Sala in Sala %}
+                    <tr>
+                        <td><a href='/atualizaSala?ID={{ Sala.ID }}'>{{ Sala.ID }}</a></td>
+                        <td>{{ Sala.Nome }}</td>
+                        <td>{{ Sala.Ativo }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+     <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-header">
+    <h1>Adicionar nova Bancada</h1>
+</div>
+
+<div class="col-sm-10">
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action="{{ url_for('insereBancada')}}" method="POST">
+    <div class="form-group">
+          <label for="ID">Identificação</label>
+          <input type="text" name="ID" class="form-control" id="ID" placeholder="ID">
+    </div>
+    <div class="form-group">
+          <label for="Tipo">Tipo</label>
+          <input type="text" name="Tipo" class="form-control" id="Tipo" placeholder="Tipo">
+    </div>
+    <div class="form-group">
+          <label for="Sala_ID">Identificação da Sala</label>
+          <input type="text" name="Sala_ID" class="form-control" id="Sala_ID" placeholder="Identificação da Sala">
+    </div>
+    <button type=submit class="btn btn-primary btn-block">Adicionar</button>
+    <ul class="nav nav-pills nav-stacked">
+            <li><a href="listarSala">Informações das Salas?</a></li>
+        </ul>
+  </form>
+</div>
+{% endblock %}

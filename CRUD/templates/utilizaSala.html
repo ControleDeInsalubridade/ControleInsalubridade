@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-header">
+    <h1>Utiliza sala</h1>
+</div>
+
+<div class="col-sm-10">
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action="{{ url_for('utilizaSala')}}" method="POST">
+    <div class="form-group">
+          <label for="Hora_entrada">Horário inicio</label>
+          <input type="datetime-local" class="form-control" id="Hora_entrada" name="Hora_entrada" placeholder="Inicio de uso">
+    </div>
+    <div class="form-group">
+          <label for="Hora_saida">Horário final</label>
+          <input type="datetime-local" class="form-control" id="Hora_saida" name="Hora_saida" placeholder="Final de uso">
+    </div>
+    <div class="form-group">
+          <label for="Funcionario_ID">Identificação do funcionário</label>
+          <input type="text" class="form-control" id="Funcionario_ID" name="Funcionario_ID" placeholder="Identificação do funcionário">
+    </div>
+    <div class="form-group">
+          <label for="Bancada_Sala_ID">Identificação da sala</label>
+          <input type="text" class="form-control" id="Sala_ID" name="Sala_ID" placeholder="Identificação da sala">
+    </div>
+    <button type=submit class="btn btn-primary btn-block">Adicionar</button>
+  </form>
+</div>
+{% endblock %}
+
+

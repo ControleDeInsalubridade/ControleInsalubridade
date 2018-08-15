@@ -162,23 +162,58 @@ Rotas utilizadas pela aplicação web para executar metodos de **POST** e **GET*
 |```POST``` /insereSala|Insere uma nova sala.|
 |```POST``` /atualizaSala|Atualiza uma sala especifica.|
 |```POST``` /removeSala|Remove uma sala especifica.|
-|```POST``` /AcessaSala|Acessa uma sala especifica. **¹**|
 |```POST``` /insereBancada|Insere uma nova bancada.|
 |```POST``` /atualizaBancada|Atualiza uma bancada especifica.|
 |```POST``` /removeBancada|Remove uma bancada especifica.|
-|```POST``` /utilizaBancada|Utiliza uma bancada especifica. **¹**|
 
-###### **¹** *Metodo realizado do hardware para a API*
 ### Mensagens externas
 
-Rotas utilizadas pelo Hardware para executar metodos de **POST** e **GET** no banco de dados.
+Metodos utilizados pelo Hardware para regitro de utilização do dispositivo físico no ambiente de trabalho.
+
+#### ```POST``` /utilizaBancada
+
+**Funcionalidade** - Utiliza uma bancada especifica
+
+**Tabela DB**- Utiliza
+
+**Body**-
+
+             {
+              "Hora_entrada":"timestamp",
+              "Hora_saida":"timestamp",
+              "Funcionario_ID":"int",
+              "Bancada_ID":"int",
+              "Bancada_Sala_ID":"int"
+              }
+
+#### ```POST``` /UtilizaSala
+
+**Funcionalidade**- Acessa uma sala especifica.
+
+**Tabela DB** - Acessa
+
+**Body-** 
+
+              {
+              "Hora_entrada":"timestamp",
+              "Hora_saida":"timestamp",
+              "Funcionario_ID":"int",
+              "Sala_ID":"int"
+              }
 
 ## Etapas de Entrega
 
 ### ETAPA 1
+Entrega da documentação de projeto.
+**DATA:**
 
 ### ETAPA 2
 
+Entrega da API e de envio de dados utilizando hardware simples RFID.
+**DATA:**
+
 ### ETAPA 3
+Melhorias no projeto.
+**DATA:**
 
 ## Sequencia de testes

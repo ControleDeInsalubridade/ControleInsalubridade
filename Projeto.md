@@ -129,8 +129,43 @@ Ao acessar o sistema o administrador deverá clicar em *Sala*, uma nova lista se
 ## Diagrama de casos de Uso
 ![Diagrama de casos de Uso](/images/Usecase.png)
 
-## Diagrama UML
-![Diagrama UML](/images/)
-
 ## Diagrama ER de banco de dados
 ![Diagrama ER de banco de dados](/images/db_pf.png)
+
+## Trocas de mensagem
+
+![Diagrama partes do sistema](/images/)
+
+### Mensagens internas
+
+Rotas utilizadas pela aplicação web para executar metodos de **POST** e **GET** no banco de dados. Onde o retorno de cada uma das funções estara contido em uma sessão para renderização de páginas web.
+
+| Nome | Funcionalidade|
+|------|--------------|
+|```GET``` /listarFuncionario|Todos funcionários registrados no banco.|
+|```GET``` /listarSala|Todas as salas registradas no banco.|
+|```GET``` /listarBancada|Todos os registros de bancada.|
+|```GET``` /Ativos|Todos os funcionários que estão atualmente contratados.|
+|```GET``` /Inativos|Todos os funcionários demitidos.|
+|```GET``` /historicoBancada|Todas os registos de utilização de bancadas.|
+|```GET``` /historicoSala|Todos os registros de utilização de Sala.|
+|```GET``` /salaAtiva|Todas as salas atualmente em uso.|
+|```GET``` /salaInativa|Todas as salas inutilizadas.|
+|```GET``` /bancadaAtiva|Todas as bancadas ativas.|
+|```GET``` /bancadaInativa|Todas as bancadas invativas.|
+|```POST``` /admitidos|Todos os funcionarios admitidos após uma data.|
+|```POST``` /admitidos|Todos os funcionarios admitidos após uma data.|
+
+### Mensagens externas
+
+Rotas utilizadas pelo Hardware para executar metodos de **POST** e **GET** no banco de dados.
+
+## Etapas de Entrega
+
+### ETAPA 1
+
+### ETAPA 2
+
+### ETAPA 3
+
+## Sequencia de testes

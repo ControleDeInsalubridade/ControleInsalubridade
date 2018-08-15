@@ -142,20 +142,33 @@ Rotas utilizadas pela aplicação web para executar metodos de **POST** e **GET*
 
 | Nome | Funcionalidade|
 |------|--------------|
-|```GET``` /listarFuncionario|Todos funcionários registrados no banco.|
-|```GET``` /listarSala|Todas as salas registradas no banco.|
-|```GET``` /listarBancada|Todos os registros de bancada.|
-|```GET``` /Ativos|Todos os funcionários que estão atualmente contratados.|
-|```GET``` /Inativos|Todos os funcionários demitidos.|
-|```GET``` /historicoBancada|Todas os registos de utilização de bancadas.|
-|```GET``` /historicoSala|Todos os registros de utilização de Sala.|
-|```GET``` /salaAtiva|Todas as salas atualmente em uso.|
-|```GET``` /salaInativa|Todas as salas inutilizadas.|
-|```GET``` /bancadaAtiva|Todas as bancadas ativas.|
-|```GET``` /bancadaInativa|Todas as bancadas invativas.|
-|```POST``` /admitidos|Todos os funcionarios admitidos após uma data.|
-|```POST``` /admitidos|Todos os funcionarios admitidos após uma data.|
+|```GET``` /listarFuncionario|Informa todos funcionários registrados no banco.|
+|```GET``` /listarSala|Informa todas as salas registradas no banco.|
+|```GET``` /listarBancada|Informa todos os registros de bancada.|
+|```GET``` /Ativos|Informa todos os funcionários que estão atualmente contratados.|
+|```GET``` /Inativos|Informa todos os funcionários demitidos.|
+|```GET``` /historicoBancada|Informa todas os registos de utilização de bancadas.|
+|```GET``` /historicoSala|Informa todos os registros de utilização de Sala.|
+|```GET``` /salaAtiva|Informa todas as salas atualmente em uso.|
+|```GET``` /salaInativa|Informa todas as salas inutilizadas.|
+|```GET``` /bancadaAtiva|Informa todas as bancadas ativas.|
+|```GET``` /bancadaInativa|Informa todas as bancadas invativas.|
+|```POST``` /admitidos|Informa todos os funcionarios admitidos após uma data.|
+|```POST``` /insereFuncionario|Insere um novo funcionario.|
+|```POST``` /atualizaFuncionario|Utiliza o nome do funcionario para atualizar informações|
+|```POST``` /removeFuncionario|Remove um funcionario especifico.|
+|```POST``` /irregularidadeFuncionario|Informa funcionarios que não estejam de acordo com a **RGN1**|
+|```POST``` /insereAdministrador|Insere um novo administrador.|
+|```POST``` /insereSala|Insere uma nova sala.|
+|```POST``` /atualizaSala|Atualiza uma sala especifica.|
+|```POST``` /removeSala|Remove uma sala especifica.|
+|```POST``` /AcessaSala|Acessa uma sala especifica. **¹**|
+|```POST``` /insereBancada|Insere uma nova bancada.|
+|```POST``` /atualizaBancada|Atualiza uma bancada especifica.|
+|```POST``` /removeBancada|Remove uma bancada especifica.|
+|```POST``` /utilizaBancada|Utiliza uma bancada especifica. **¹**|
 
+###### **¹** *Metodo realizado do hardware para a API*
 ### Mensagens externas
 
 Rotas utilizadas pelo Hardware para executar metodos de **POST** e **GET** no banco de dados.

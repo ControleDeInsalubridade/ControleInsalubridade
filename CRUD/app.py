@@ -10,27 +10,23 @@ from flask import (
 
 # https://dev.mysql.com/doc/connector-python/en/connector-python-introduction.html
 from mysql.connector import MySQLConnection, Error
-#from mysql.connector.cursor import MySQLCursorPrepared
-from forms import LoginForm
 from time import strftime, time, sleep
 from sched import scheduler
 import threading
 import time
-from config import Config
 
 db_config = {
-    'user': 'root',
-    'password': '',
-    'host': '127.0.0.1',
-    'database': 'mydb',
+    'user': 'admin',
+    'password': 'pj129008',
+    'host': 'nuvem.sj.ifsc.edu.br',
+    'port':'30003',
+    'database': 'database',
     'raise_on_warnings': True,
 }
 
 SECRET_KEY = 'aula de BCD - string aleatória'
 
 app = Flask(__name__)
-app.config.from_object(Config)
-app.config['SECRET_KEY'] = 'you-will-never-guess'
 
 app.secret_key = SECRET_KEY
 
@@ -43,8 +39,7 @@ def print_and_schedule():
     sch.enter(5, 0, print_time, ())
     sch.run()
 
-irreg=None
-
+irreg = None
 error = None
 
 def verificaIrreg(message):
@@ -103,26 +98,32 @@ def About():
 
 @app.route('/insereFuncionario', methods=('GET', 'POST'))
 def insereFuncionario():
-
+    RE = request.form;
     if request.method == 'POST':
-        dados = (request.form['Nome'],
-                 request.form['Sobrenome'],
-                 request.form['CPF'],
-                 request.form['RG'],
-                 request.form['DataNascimento'],
-                 request.form['Endereco'],
-                 request.form['Sexo'],
-                 request.form['data_admissao'])
+        dados = (RE['Nome'],
+                 RE['Sobrenome'],
+                 RE['CPF'],
+                 RE['RG'],
+                 RE['DataNascimento'],
+                 RE['Endereco'],
+                 RE['Sexo'],
+                 RE['data_admissao'])
+        if (RE['Nome']=='' or RE['Sobrenome']=='' or RE['CPF']=='' or RE['RG']=='' or RE['DataNascimento']=='' or RE['Endereco']=='' or RE['Sexo']=='' or RE['data_admissao']==''):
+            print("Todos os parâmetros devem ser preenchidos")
+        # else:
         try:
             g.db = MySQLConnection(**db_config)
             cursor = g.db.cursor()
 
-            consulta = "INSERT INTO Funcionario(Nome,Sobrenome,CPF,RG,DataNascimento,Endereco,Sexo,data_admissao) " \
-                       "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-            cursor.execute(consulta, dados)
-            g.db.commit()
-            cursor.close()
-            g.db.close()
+            if (request.form['DataNascimento'] > request.form['data_admissao']):
+                    print("Data de Nascimento > Data Admissão")
+            else:
+                consulta = "INSERT INTO Funcionario(Nome,Sobrenome,CPF,RG,DataNascimento,Endereco,Sexo,data_admissao) " \
+                           "VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+                cursor.execute(consulta, dados)
+                g.db.commit()
+                cursor.close()
+                g.db.close()
 
         except Exception as e:
             return (str(e))
@@ -138,7 +139,6 @@ def removeFuncionario():
         sobrenome = request.form['Sobrenome']
         data = request.form['data_demissao']
 
-        dados_demissao = (data, nome, sobrenome)
         try:
             g.db = MySQLConnection(**db_config)
             cursor = g.db.cursor()
@@ -846,3 +846,4 @@ def login():
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", debug=True)
+

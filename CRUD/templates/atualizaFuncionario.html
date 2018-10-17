@@ -59,18 +59,35 @@
         <div class="form-group">
             <label for="Endereco">Endereço</label>
             <input type="text" name="Endereco" class="form-control" id="Endereco" value={{ session['func']['Endereco'] }} placeholder="Endereço pessoal">
+            <input name="Sexo" id="Sexo" value={{session['func']['Sexo'] }} type="hidden">
         </div>
         <div class="form-group">
-            <label for="Sexo">Sexo</label>
-            <input type="text" name="Sexo" class="form-control" id="Sexo" value={{ session['func']['Sexo'] }} placeholder="Feminino//Masculino">
+            <label>Sexo</label>
+            <select class="form-control" id="aux_sexo">
+                <option>Sexo cadastrado: {{session['func']['Sexo'] }}</option>
+                <option>Feminino</option>
+                <option>Masculino</option>
+                <option>Não declarado</option>
+                </select>
+                <br>
         </div>
         <div class="form-group">
             <label for="data_admissao">Data de admissão</label>
             <input type="date" name="data_admissao" class="form-control" id="data_admissao" value={{ session['func']['data_admissao'] }} placeholder="xx/xx/xxxx" required>
         </div>
+         <script>
+        $(document).ready(function(){
+            var valor = "Feminino";
+            $('#aux_sexo').on('change',function(){
+                valor = $("#aux_sexo option:selected").text();
+                alert(valor)
+                $("#Sexo").val(valor);
 
+        });
+        });
+        </script>
         <button type=submit class="btn btn-primary btn-block">Atualizar</button>
     </form>
 
   </div>
-{% endblock %}ock %}
+{% endblock %}

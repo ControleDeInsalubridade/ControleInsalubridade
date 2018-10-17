@@ -205,7 +205,8 @@ def listarFuncionario():
     g.db = MySQLConnection(**db_config)
     cursor = g.db.cursor()
 
-    query = "SELECT ID,Nome,Sobrenome,CPF,RG,DataNascimento,Endereco,Sexo,data_admissao,data_demissao FROM Funcionario"
+  query = "SELECT ID,Nome,Sobrenome,CPF,RG,date_format(DataNascimento,'%d/%m/%y'),Endereco,Sexo,date_format(data_admissao,'%d/%m/%y'),date_format(data_demissao,'%d/%m/%y') FROM Funcionario"
+
 
     cursor.execute(query)
     for (ID, Nome,Sobrenome,CPF,RG,DataNascimento,Endereco,Sexo,data_admissao,data_demissao) in cursor:

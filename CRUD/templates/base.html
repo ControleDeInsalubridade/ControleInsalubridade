@@ -47,19 +47,39 @@
         <div align="left">
             {% if session.logged_in %}Logado{% else %}Não logado{% endif %}
         </div>
-        <nav class="navbar navbar-default">
-                <div class="container">
-                  <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                      <li><a href="/">Home</a></li>
-                      <li><a href="Funcionario">Funcionário</a></li>
-                      <li><a href="Sala">Sala</a></li>
-                      <li><a href="Bancada">Bancada</a></li>
-                      <li><a href="About">Sobre</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
+        <nav class="nav nav-tabs">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Funcionário<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="insereFuncionario">Insere</a></li>
+                  <li><a href="listarFuncionario">Listar</a></li>
+                  <li><a href="removeFuncionario">Demitir</a></li>
+                  <li><a href="irregularidadeFuncionario">Irregularidades</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sala<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="insereSala">Insere</a></li>
+                  <li><a href="listarSala">Listar</a></li>
+                  <li><a href="removeSala">Demitir</a></li>
+                  <li><a href="atualizaSala">Atualizar</a></li>
+                  <li><a href="historicoSala">Historico</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Bancada<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="insereBancada">Insere</a></li>
+                  <li><a href="listarBancada">Listar</a></li>
+                  <li><a href="removeBancada">Demitir</a></li>
+                  <li><a href="atualizaBancada">Atualizar</a></li>
+                  <li><a href="historicoBancada">Historico</a></li>
+                </ul>
+              </li>
+              <li class="active"><a href="About">Sobre</a></li>
+          </div>
+        </nav>
         {% block content %}{% endblock %}
     </div>
 </body>

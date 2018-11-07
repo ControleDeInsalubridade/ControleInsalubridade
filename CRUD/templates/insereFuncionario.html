@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% block content %}
 
@@ -54,15 +53,13 @@
     <br>
     <button type=submit class="btn btn-primary btn-block">Adicionar</button>
   </form>
-     <script>
-    $(document).ready(function(){
-        $('#sexo').on('change',function(){
-
-            var valor = $("#sexo option:selected").text();
-            $("#Sexo").val(valor);
-
-    });
-    });
+    <script>
+    	$(document).ready(function(){
+        	$('#sexo').on('change',function(){
+        	    var valor = $("#sexo option:selected").text();
+            	    $("#Sexo").val(valor);
+    	        });$("#Sexo").val("Feminino");
+        });
     </script>
 </div>
 {% endblock %}
